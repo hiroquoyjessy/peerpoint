@@ -2,9 +2,9 @@ import React from "react";
 
 import './Header.css';
 
-import logo from './images/logo.png';
+import logo from '../../images/logo.png';
 
-const Header = props => (
+const Header = () => (
   <div className="nav">
     <img className="nav-logo" alt="Peerpoint logo" src={logo} />
   </div>

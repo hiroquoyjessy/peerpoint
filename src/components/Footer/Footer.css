@@ -1,0 +1,17 @@
+.footer {
+    text-align: center;
+}
+
+.copyright {
+    bottom: 0;
+    position: relative;
+    color: #777
+}
+
+.footer-link {
+    cursor: pointer;
+}
+
+.footer-link-wrapper {
+    padding-top: 30px;
+}

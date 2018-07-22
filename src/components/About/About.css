@@ -26,15 +26,17 @@
 .first-text {
     color: #666;
     font-weight: 300;
+    margin-bottom: 0;
 }
 
 .card-wrapper {
+    padding-top: 20px;
     padding-left: 30px;
 }
 
 .cards {
     display: flex;
-    flex-flow: row nowrap;
+    flex-flow: row wrap;
     justify-content: center;
     margin-left: -30px;
     padding: 20px 0px

@@ -12,7 +12,14 @@ class App extends Component {
     return (
       <div className="main-wrapper">
         <Header />
-        <HomeCard />
+        <div className="home-card-wrapper">
+          <div>
+            <h1 className="main-text">
+                America's #1 Business Funding Company!
+            </h1>
+          </div>
+          <HomeCard />
+        </div>
         <About />
         <Footer />
       </div>

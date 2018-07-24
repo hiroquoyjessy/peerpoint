@@ -40,8 +40,8 @@ class HomeCard extends Component {
         const { value } = this.state;
 
         return (
-            <Grid className="home-card-wrapper" container>
-                <Grid item lg={6} md ={6} sm={8} xs={8}>
+            <Grid className="card-container" container>
+                <Grid item lg={6} md={6} sm={6} xs={12}>
                     <Card raised>
                         <CardContent>
                             <Typography variant='display1' style={{ color: '#2A5CAD' }}>
@@ -50,7 +50,7 @@ class HomeCard extends Component {
                             </Typography>
                         </CardContent>
                         <CardContent>
-                            <Typography variant='headline' style={{ color: '#0e3e5a' }}>
+                            <Typography variant='subheading' style={{ color: '#0e3e5a', padding: 0 }}>
                                 One Simple Application, and No Financial Statements up to $500K!
 
                             </Typography>

@@ -7,7 +7,7 @@ const SimpleSlider = (props) => {
 
     return (
       <div>
-        <Typography variant='headline' style={{ color: '#2A5CAD' }} >{value}</Typography>
+        <Typography variant='headline' style={{ color: '#2A5CAD' }} >${value}</Typography>
           <Slider 
             style={{ margin: 'auto' }} 
             value={value} 

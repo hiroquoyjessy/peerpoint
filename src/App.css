@@ -1,0 +1,7 @@
+.home-card-wrapper {
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    background-color: #2A5CAD;
+    flex-direction: column
+}

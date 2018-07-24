@@ -1,7 +1,13 @@
-.home-card-wrapper {
-    text-align: center;
+.main-text {
+    color: white;
+    font-family: "Libre Franklin", "Helvetica Neue", helvetica, arial, sans-serif;
+    padding: 20px;
+    font-size: 26px;
+    margin: 0px;
+    font-weight: 300;
+  }
+
+  .card-container {
     justify-content: center;
-    align-items: center;
-    background-color: #2A5CAD;
-    height: 600px;
+    padding-bottom: 40px;
 }

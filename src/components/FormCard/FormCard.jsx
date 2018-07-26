@@ -43,20 +43,75 @@ class FormCard extends Component {
         }));
     };
 
+
+    renderTitle() {
+        const { activeStep } = this.state;
+
+        switch(activeStep) {
+            case 0: {
+                return <div>First Step</div>    
+            }
+            case 1: {
+                return <div>Second Step</div>    
+            }
+            case 2: {
+                return <div>Third Step</div>    
+            }
+            case 3: {
+                return <div>Fourth Step</div>    
+            }
+            case 4: {
+                return <div>Fifth Step</div>    
+            }
+            default: 
+                return null
+        }
+    }
+
+    renderSteps() {
+        const { activeStep } = this.state;
+
+        switch(activeStep) {
+            case 0: {
+                console.log(`activeStep: ${activeStep}`);
+                return <div>First Step</div>    
+            }
+            case 1: {
+                console.log(`activeStep: ${activeStep}`);
+                return <div>Second Step</div>    
+            }
+            case 2: {
+                console.log(`activeStep: ${activeStep}`);
+                return <div>Third Step</div>    
+            }
+            case 3: {
+                console.log(`activeStep: ${activeStep}`);
+                return <div>Fourth Step</div>    
+            }
+            case 4: {
+                console.log(`activeStep: ${activeStep}`);
+                return <div>Fifth Step</div>    
+            }
+            default: 
+                return null
+        }
+    }
+
     render() {
     const { classes, theme } = this.props;
 
     return (
         <div>
+            {this.renderTitle()}            
             <div className="stepper-bar">
                 <MobileStepper
                 variant="progress"
-                steps={6}
+                steps={5}
                 position="static"
                 activeStep={this.state.activeStep}
                 className={classes.root}
                 nextButton={
-                    <Button size="small" onClick={this.handleNext} disabled={this.state.activeStep === 5}>
+                    <Button size="small" onClick={this.handleNext} disabled={this.state.activeStep === 4}>
                     Next
                     {theme.direction === 'rtl' ? <KeyboardArrowLeft /> : <KeyboardArrowRight />}
                     </Button>
@@ -69,6 +124,7 @@ class FormCard extends Component {
                 }
                 />
             </div>
+            {this.renderSteps()}            
         </div>
         )
     }

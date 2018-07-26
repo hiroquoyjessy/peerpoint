@@ -9,8 +9,8 @@ import logo from '../../images/logo.png';
 
 const Header = () => (
   <div className="nav">
-    <Link to="/">
-      <img className="nav-logo" alt="Peerpoint logo" src={logo} />
+    <Link className="nav-logo" to="/">
+      <img  alt="Peerpoint logo" src={logo} />
     </Link>
   </div>
 );

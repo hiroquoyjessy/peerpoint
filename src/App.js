@@ -4,6 +4,7 @@ import Header from "./components/Header";
 import About from "./components/About";
 import Footer from "./components/Footer";
 import HomeCard from "./components/HomeCard";
+import FormCard from "./components/FormCard";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import "./App.css";
@@ -33,9 +34,18 @@ class App extends Component {
                 path='/'
                 render={(props) => <HomeCard {...props} dataAggregate={this.dataAggregate} />}
               />
+              <Route
+                exact
+                path='/form'
+                render={(props) => <FormCard {...props} dataAggregate={this.dataAggregate} />}
+              />
             </Switch>
           </div>
-          <About />
+          <Route
+            exact
+            path='/'
+            render={(props) => <About />}
+          />
           <Footer />
         </div>
       </ Router>

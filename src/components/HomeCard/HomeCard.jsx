@@ -73,7 +73,7 @@ class HomeCard extends Component {
                                 <SimpleSlider setSliderValue={this.setSliderValue} value={value}/>
                             </CardContent>
                             <CardContent>
-                                <Link to='/form' style={{ textDecoration: 'none' }}>
+                                <Link to='/form#1' style={{ textDecoration: 'none' }}>
                                     <Button 
                                         onClick={this.sendData}
                                         variant='contained' 

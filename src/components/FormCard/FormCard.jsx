@@ -1,133 +1,159 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
-import MobileStepper from '@material-ui/core/MobileStepper';
-import Button from '@material-ui/core/Button';
-import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
-import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
-import { withStyles } from '@material-ui/core/styles';
-import { Route, Switch } from "react-router-dom";
+import MobileStepper from "@material-ui/core/MobileStepper";
+import Button from "@material-ui/core/Button";
+import Grid from "@material-ui/core/Grid";
+import KeyboardArrowLeft from "@material-ui/icons/KeyboardArrowLeft";
+import KeyboardArrowRight from "@material-ui/icons/KeyboardArrowRight";
+import { withStyles } from "@material-ui/core/styles";
 
-import './FormCard.css';
+import ContactForm from "../ContactForm";
+
+import "./FormCard.css";
 
 const styles = {
-    root: {
-      flexGrow: 1,
-    },
-  };
+  root: {
+    flexGrow: 1,
+  }
+};
 
 class FormCard extends Component {
-    constructor() {
-        super();
-        this.state = {
-            activeStep: 0,
-            data: {}
-        };
-        this.sendData = this.sendData.bind(this);
-    }
-
-    sendData() {
-        const { dataAggregate } = this.props;
-
-        dataAggregate(this.state);
-    }
-
-    handleNext = () => {
-        this.setState(state => ({
-          activeStep: state.activeStep + 1,
-        }));
-      };
-    
-    handleBack = () => {
-        this.setState(state => ({
-            activeStep: state.activeStep - 1,
-        }));
+  constructor() {
+    super();
+    this.state = {
+      activeStep: 0,
+      data: {}
     };
+    this.sendData = this.sendData.bind(this);
+  }
 
+  sendData() {
+    const { dataAggregate } = this.props;
 
-    renderTitle() {
-        const { activeStep } = this.state;
+    dataAggregate(this.state);
+  }
 
-        switch(activeStep) {
-            case 0: {
-                return <div>First Step</div>    
-            }
-            case 1: {
-                return <div>Second Step</div>    
-            }
-            case 2: {
-                return <div>Third Step</div>    
-            }
-            case 3: {
-                return <div>Fourth Step</div>    
-            }
-            case 4: {
-                return <div>Fifth Step</div>    
-            }
-            default: 
-                return null
-        }
+  handleNext = () => {
+    this.setState(state => ({
+      activeStep: state.activeStep + 1
+    }));
+  };
+
+  handleBack = () => {
+    this.setState(state => ({
+      activeStep: state.activeStep - 1
+    }));
+  };
+
+  renderTitle() {
+    const { activeStep } = this.state;
+
+    switch (activeStep) {
+      case 0: {
+        return <div>First Step</div>;
+      }
+      case 1: {
+        return <div>Second Step</div>;
+      }
+      case 2: {
+        return <div>Third Step</div>;
+      }
+      case 3: {
+        return <div>Fourth Step</div>;
+      }
+      case 4: {
+        return <div>Fifth Step</div>;
+      }
+      default:
+        return null;
     }
+  }
 
-    renderSteps() {
-        const { activeStep } = this.state;
+  renderSteps() {
+    const { activeStep } = this.state;
+    const { dataAggregate, parentState } = this.props;
 
-        switch(activeStep) {
-            case 0: {
-                console.log(`activeStep: ${activeStep}`);
-                return <div>First Step</div>    
-            }
-            case 1: {
-                console.log(`activeStep: ${activeStep}`);
-                return <div>Second Step</div>    
-            }
-            case 2: {
-                console.log(`activeStep: ${activeStep}`);
-                return <div>Third Step</div>    
-            }
-            case 3: {
-                console.log(`activeStep: ${activeStep}`);
-                return <div>Fourth Step</div>    
-            }
-            case 4: {
-                console.log(`activeStep: ${activeStep}`);
-                return <div>Fifth Step</div>    
-            }
-            default: 
-                return null
-        }
+    switch (activeStep) {
+      case 0: {
+        console.log(`activeStep: ${activeStep}`);
+        return <ContactForm 
+                companyState={parentState.companyState}
+                companyLegalEntity={parentState.companyLegalEntity}
+                businessLocation={parentState.businessLocation}
+                dataAggregate={dataAggregate} 
+                initialValues={parentState}
+              />;
+      }
+      case 1: {
+        console.log(`activeStep: ${activeStep}`);
+        return <div>Second Step</div>;
+      }
+      case 2: {
+        console.log(`activeStep: ${activeStep}`);
+        return <div>Third Step</div>;
+      }
+      case 3: {
+        console.log(`activeStep: ${activeStep}`);
+        return <div>Fourth Step</div>;
+      }
+      case 4: {
+        console.log(`activeStep: ${activeStep}`);
+        return <div>Fifth Step</div>;
+      }
+      default:
+        return null;
     }
+  }
 
-    render() {
+  render() {
     const { classes, theme } = this.props;
-
     return (
-        <div>
-            {this.renderTitle()}            
-            <div className="stepper-bar">
-                <MobileStepper
+      <div>
+        <div className="stepper-bar">
+          <Grid container justify="center">
+            <Grid item lg={6} md={10} sm={12} xs={12}>
+              <MobileStepper
                 variant="progress"
                 steps={5}
                 position="static"
                 activeStep={this.state.activeStep}
                 className={classes.root}
                 nextButton={
-                    <Button size="small" onClick={this.handleNext} disabled={this.state.activeStep === 4}>
+                  <Button
+                    size="small"
+                    onClick={this.handleNext}
+                    disabled={this.state.activeStep === 4}
+                  >
                     Next
-                    {theme.direction === 'rtl' ? <KeyboardArrowLeft /> : <KeyboardArrowRight />}
-                    </Button>
+                    {theme.direction === "rtl" ? (
+                      <KeyboardArrowLeft />
+                    ) : (
+                      <KeyboardArrowRight />
+                    )}
+                  </Button>
                 }
                 backButton={
-                    <Button size="small" onClick={this.handleBack} disabled={this.state.activeStep === 0}>
-                    {theme.direction === 'rtl' ? <KeyboardArrowRight /> : <KeyboardArrowLeft />}
+                  <Button
+                    size="small"
+                    onClick={this.handleBack}
+                    disabled={this.state.activeStep === 0}
+                  >
+                    {theme.direction === "rtl" ? (
+                      <KeyboardArrowRight />
+                    ) : (
+                      <KeyboardArrowLeft />
+                    )}
                     Back
-                    </Button>
+                  </Button>
                 }
-                />
-            </div>
-            {this.renderSteps()}            
+              />
+              {this.renderSteps()}
+            </Grid>
+          </Grid>
         </div>
-        )
-    }
+      </div>
+    );
+  }
 }
 
 export default withStyles(styles, { withTheme: true })(FormCard);

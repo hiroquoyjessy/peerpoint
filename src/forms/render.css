@@ -1,0 +1,11 @@
+.text-danger {
+    color: red;
+    font-size: 15px;
+}
+.formInputWarning {
+    padding: 5px
+}
+
+.label {
+    padding-bottom:100px;
+}

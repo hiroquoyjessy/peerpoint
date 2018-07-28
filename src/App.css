@@ -1,21 +1,11 @@
 .home-card-wrapper {
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-    background-color: #2A5CAD;
-    flex-direction: column
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  background-color: #2a5cad;
+  flex-direction: column;
 }
 
 .stepper-bar {
-    padding-bottom: 20px;
-    margin: 0 auto;
-    width: fit-content;
-    min-width: 50%;
-}
-
-@media only screen and (max-width: 768px) {
-
-    .stepper-bar {
-        min-width: 90%;
-    }
+  padding-bottom: 20px;
 }
